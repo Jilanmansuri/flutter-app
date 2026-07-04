@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'package:google_generative_ai/google_generative_ai.dart';
-import '../../models/transaction_model.dart';
-import '../../models/budget_model.dart';
-import '../../models/bill_reminder_model.dart';
+
 import 'hive_service.dart';
 
 class AiInsightCard {
@@ -37,7 +35,7 @@ class AiService {
   // Generate automated financial insights based on real local data
   List<AiInsightCard> generateInsights() {
     final transactions = _hiveService.getTransactions();
-    final budgets = _hiveService.getBudgets();
+
     final bills = _hiveService.getBills();
 
     List<AiInsightCard> insights = [];

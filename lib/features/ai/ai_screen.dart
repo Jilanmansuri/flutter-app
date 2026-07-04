@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/services/providers.dart';
 import '../../core/services/ai_service.dart';
-import '../../widgets/glass_card.dart';
 
 class AiScreen extends ConsumerStatefulWidget {
   const AiScreen({super.key});
@@ -117,7 +116,7 @@ class _AiScreenState extends ConsumerState<AiScreen> {
           // Suggestion Prompt Templates
           Container(
             padding: const EdgeInsets.symmetric(vertical: 8),
-            color: Theme.of(context).cardColor.withOpacity(0.4),
+            color: Theme.of(context).cardColor.withValues(alpha: 0.4),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -178,9 +177,9 @@ class _AiScreenState extends ConsumerState<AiScreen> {
       margin: const EdgeInsets.only(right: 12),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: typeColor.withOpacity(0.08),
+        color: typeColor.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: typeColor.withOpacity(0.2), width: 1.5),
+        border: Border.all(color: typeColor.withValues(alpha: 0.2), width: 1.5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
