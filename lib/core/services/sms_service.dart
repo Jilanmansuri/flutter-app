@@ -1,10 +1,9 @@
 import 'package:permission_handler/permission_handler.dart';
-import 'package:telephony/telephony.dart';
+import 'package:flutter_sms_inbox/flutter_sms_inbox.dart';
 import '../../models/transaction_model.dart';
-import '../constants/constants.dart';
 
 class SmsService {
-  final Telephony _telephony = Telephony.instance;
+  final SmsQuery _query = SmsQuery();
 
   // Request SMS Read permission
   Future<bool> requestPermission() async {
@@ -26,9 +25,8 @@ class SmsService {
     }
 
     try {
-      List<SmsMessage> messages = await _telephony.getInboxSms(
-        columns: [SmsColumn.ADDRESS, SmsColumn.BODY, SmsColumn.DATE],
-        sortOrder: [OrderBy(SmsColumn.DATE, sort: Sort.DESC)]
+      List<SmsMessage> messages = await _query.querySms(
+        kinds: [SmsQueryKind.inbox],
       );
 
       List<TransactionModel> parsedTransactions = [];
@@ -83,9 +81,9 @@ class SmsService {
   }
 
   // Regular expression parsing logic to extract transactional parameters
-  TransactionModel? _parseSms(String body, String sender, String userId, int? epochDate) {
+  TransactionModel? _parseSms(String body, String sender, String userId, DateTime? msgDate) {
     final cleanBody = body.replaceAll(',', ''); // remove comma for easy number parsing
-    final date = epochDate != null ? DateTime.fromMillisecondsSinceEpoch(epochDate) : DateTime.now();
+    final date = msgDate ?? DateTime.now();
     final timeStr = "${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}";
 
     // 1. Determine Debit vs Credit
@@ -180,7 +178,7 @@ class SmsService {
     final paymentMethod = upiId != null ? 'UPI' : (accountLast4 != null ? 'Bank Transfer' : 'Cash');
 
     return TransactionModel(
-      id: 'sms_${epochDate ?? DateTime.now().millisecondsSinceEpoch}_${amount.toInt()}',
+      id: 'sms_${date.millisecondsSinceEpoch}_${amount.toInt()}',
       userId: userId,
       amount: amount,
       type: type,

@@ -36,7 +36,7 @@ dependencies:
   image_picker: ^1.1.2
   google_mlkit_text_recognition: ^0.13.0
   permission_handler: ^11.3.1
-  telephony: ^0.2.0
+  flutter_sms_inbox: ^1.0.5
   local_auth: ^2.2.0
   flutter_local_notifications: ^17.2.1+2
 
