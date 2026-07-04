@@ -26,7 +26,7 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
     _searchController.addListener(() {
       ref.read(transactionFilterProvider.notifier).updateFilter(ref.read(transactionFilterProvider).copyWith(
             searchQuery: _searchController.text,
-          );
+          ));
     });
   }
 
@@ -168,7 +168,7 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
                           ref.read(transactionFilterProvider.notifier).updateFilter(ref.read(transactionFilterProvider).copyWith(
                                 sortBy: 'date',
                                 ascending: _ascending,
-                              );
+                              ));
                         });
                       },
                     ),
@@ -181,7 +181,7 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
                           ref.read(transactionFilterProvider.notifier).updateFilter(ref.read(transactionFilterProvider).copyWith(
                                 sortBy: 'amount',
                                 ascending: _ascending,
-                              );
+                              ));
                         });
                       },
                     ),
@@ -274,7 +274,7 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
               _selectedCategory = label;
               ref.read(transactionFilterProvider.notifier).updateFilter(ref.read(transactionFilterProvider).copyWith(
                     categoryFilter: label,
-                  );
+                  ));
             });
           }
         },
