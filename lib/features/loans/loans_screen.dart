@@ -69,7 +69,7 @@ class _LoansScreenState extends ConsumerState<LoansScreen> {
                       LinearProgressIndicator(
                         value: progress / 100,
                         color: Colors.blueAccent,
-                        backgroundColor: Colors.blueAccent.withOpacity(0.1),
+                        backgroundColor: Colors.blueAccent.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       const SizedBox(height: 8),
