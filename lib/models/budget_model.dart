@@ -61,7 +61,7 @@ class BudgetModel {
       month: map['month'] ?? '',
       category: map['category'] ?? 'Total',
       limitAmount: (map['limitAmount'] as num).toDouble(),
-      spentAmount: (map['spentAmount'] as num ?? 0.0).toDouble(),
+      spentAmount: (map['spentAmount'] as num?)?.toDouble() ?? 0.0,
       updatedAt: map['updatedAt'] != null 
           ? DateTime.parse(map['updatedAt']) 
           : DateTime.now(),

@@ -76,7 +76,7 @@ class SavingsGoalModel {
       userId: map['userId'] ?? '',
       title: map['title'] ?? '',
       targetAmount: (map['targetAmount'] as num).toDouble(),
-      savedAmount: (map['savedAmount'] as num ?? 0.0).toDouble(),
+      savedAmount: (map['savedAmount'] as num?)?.toDouble() ?? 0.0,
       deadline: map['deadline'] != null ? DateTime.parse(map['deadline']) : DateTime.now(),
       imageUrl: map['imageUrl'],
       isCompleted: map['isCompleted'] ?? false,
