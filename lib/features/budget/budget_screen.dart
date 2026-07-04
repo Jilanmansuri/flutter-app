@@ -5,7 +5,6 @@ import '../../core/constants/constants.dart';
 import '../../core/services/providers.dart';
 import '../../models/budget_model.dart';
 import '../../widgets/glass_card.dart';
-import '../../widgets/premium_gradient_button.dart';
 
 class BudgetScreen extends ConsumerStatefulWidget {
   const BudgetScreen({super.key});
@@ -159,7 +158,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                               Row(
                                 children: [
                                   CircleAvatar(
-                                    backgroundColor: categoryInfo.color.withOpacity(0.1),
+                                    backgroundColor: categoryInfo.color.withValues(alpha: 0.1),
                                     child: Icon(categoryInfo.icon, color: categoryInfo.color, size: 20),
                                   ),
                                   const SizedBox(width: 12),
@@ -179,7 +178,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                               LinearProgressIndicator(
                                 value: catProgress > 1.0 ? 1.0 : catProgress,
                                 color: catColor,
-                                backgroundColor: catColor.withOpacity(0.1),
+                                backgroundColor: catColor.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               const SizedBox(height: 6),
@@ -255,7 +254,7 @@ class _AddBudgetDialogState extends ConsumerState<AddBudgetDialog> {
           children: [
             // Category Dropdown
             DropdownButtonFormField<String>(
-              value: _category,
+              initialValue: _category,
               decoration: InputDecoration(
                 labelText: 'Target Category',
                 border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
