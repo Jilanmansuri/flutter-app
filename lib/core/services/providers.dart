@@ -162,6 +162,10 @@ class TransactionFilterState {
 
 class FilterNotifier extends StateNotifier<TransactionFilterState> {
   FilterNotifier() : super(TransactionFilterState());
+  
+  void updateFilter(TransactionFilterState newState) {
+    state = newState;
+  }
 }
 
 final transactionFilterProvider = StateNotifierProvider<FilterNotifier, TransactionFilterState>((ref) {

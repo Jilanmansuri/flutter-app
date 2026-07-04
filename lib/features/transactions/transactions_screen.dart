@@ -18,14 +18,13 @@ class TransactionsScreen extends ConsumerStatefulWidget {
 class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
   final TextEditingController _searchController = TextEditingController();
   String _selectedCategory = 'All';
-  String _sortBy = 'date';
   bool _ascending = false;
 
   @override
   void initState() {
     super.initState();
     _searchController.addListener(() {
-      ref.read(transactionFilterProvider.notifier).state = ref.read(transactionFilterProvider).copyWith(
+      ref.read(transactionFilterProvider.notifier).updateFilter(ref.read(transactionFilterProvider).copyWith(
             searchQuery: _searchController.text,
           );
     });
@@ -165,9 +164,8 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
                       label: Text('Sort by Date'),
                       onPressed: () {
                         setState(() {
-                          _sortBy = 'date';
                           _ascending = !_ascending;
-                          ref.read(transactionFilterProvider.notifier).state = ref.read(transactionFilterProvider).copyWith(
+                          ref.read(transactionFilterProvider.notifier).updateFilter(ref.read(transactionFilterProvider).copyWith(
                                 sortBy: 'date',
                                 ascending: _ascending,
                               );
@@ -179,9 +177,8 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
                       label: const Text('Sort by Amount'),
                       onPressed: () {
                         setState(() {
-                          _sortBy = 'amount';
                           _ascending = !_ascending;
-                          ref.read(transactionFilterProvider.notifier).state = ref.read(transactionFilterProvider).copyWith(
+                          ref.read(transactionFilterProvider.notifier).updateFilter(ref.read(transactionFilterProvider).copyWith(
                                 sortBy: 'amount',
                                 ascending: _ascending,
                               );
@@ -227,7 +224,7 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
                           margin: const EdgeInsets.symmetric(vertical: 8),
                           child: ListTile(
                             leading: CircleAvatar(
-                              backgroundColor: cat.color.withOpacity(0.1),
+                              backgroundColor: cat.color.withValues(alpha: 0.1),
                               child: Icon(cat.icon, color: cat.color),
                             ),
                             title: Text(tx.notes ?? tx.category, style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -275,7 +272,7 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
           if (sel) {
             setState(() {
               _selectedCategory = label;
-              ref.read(transactionFilterProvider.notifier).state = ref.read(transactionFilterProvider).copyWith(
+              ref.read(transactionFilterProvider.notifier).updateFilter(ref.read(transactionFilterProvider).copyWith(
                     categoryFilter: label,
                   );
             });
@@ -436,7 +433,7 @@ class _TransactionFormSheetState extends ConsumerState<TransactionFormSheet> {
               const Text('Select Category', style: TextStyle(fontWeight: FontWeight.bold)),
               const SizedBox(height: 12),
               DropdownButtonFormField<String>(
-                value: _category,
+                initialValue: _category,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
                 ),
@@ -473,7 +470,7 @@ class _TransactionFormSheetState extends ConsumerState<TransactionFormSheet> {
 
               // Payment Method
               DropdownButtonFormField<String>(
-                value: _paymentMethod,
+                initialValue: _paymentMethod,
                 decoration: InputDecoration(
                   labelText: 'Payment Method',
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
