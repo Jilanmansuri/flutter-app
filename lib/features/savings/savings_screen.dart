@@ -5,8 +5,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import '../../core/services/providers.dart';
 import '../../models/savings_goal_model.dart';
-import '../../widgets/glass_card.dart';
-import '../../widgets/premium_gradient_button.dart';
 
 class SavingsScreen extends ConsumerStatefulWidget {
   const SavingsScreen({super.key});
@@ -73,7 +71,7 @@ class _SavingsScreenState extends ConsumerState<SavingsScreen> {
                       else
                         Container(
                           height: 100,
-                          color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
                           alignment: Alignment.center,
                           child: Icon(Icons.laptop_mac_rounded, size: 48, color: Theme.of(context).colorScheme.primary),
                         ),
@@ -101,7 +99,7 @@ class _SavingsScreenState extends ConsumerState<SavingsScreen> {
                             LinearProgressIndicator(
                               value: progress / 100,
                               color: Colors.green,
-                              backgroundColor: Colors.green.withOpacity(0.1),
+                              backgroundColor: Colors.green.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             const SizedBox(height: 8),
