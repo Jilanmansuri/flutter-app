@@ -54,7 +54,7 @@ class _BillsScreenState extends ConsumerState<BillsScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
@@ -230,7 +230,7 @@ class _AddBillDialogState extends ConsumerState<AddBillDialog> {
               ),
               const SizedBox(height: 12),
               DropdownButtonFormField<String>(
-                value: _category,
+                initialValue: _category,
                 decoration: const InputDecoration(labelText: 'Utility Type'),
                 items: ['Electricity', 'Internet', 'Mobile Recharge', 'Rent', 'Insurance', 'Netflix', 'Amazon Prime', 'Spotify', 'Others']
                     .map((cat) => DropdownMenuItem(value: cat, child: Text(cat)))
@@ -256,7 +256,7 @@ class _AddBillDialogState extends ConsumerState<AddBillDialog> {
               ),
               if (_isRecurring)
                 DropdownButtonFormField<String>(
-                  value: _frequency,
+                  initialValue: _frequency,
                   decoration: const InputDecoration(labelText: 'Frequency'),
                   items: ['weekly', 'monthly', 'yearly']
                       .map((freq) => DropdownMenuItem(value: freq, child: Text(freq.toUpperCase())))
