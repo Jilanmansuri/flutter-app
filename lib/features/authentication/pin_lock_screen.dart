@@ -92,7 +92,7 @@ class _PinLockScreenState extends ConsumerState<PinLockScreen> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: primaryColor.withOpacity(0.1),
+                    color: primaryColor.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
@@ -127,7 +127,7 @@ class _PinLockScreenState extends ConsumerState<PinLockScreen> {
                     shape: BoxShape.circle,
                     color: _isError 
                         ? Colors.red 
-                        : (hasDigit ? primaryColor : Colors.grey.withOpacity(0.3)),
+                        : (hasDigit ? primaryColor : Colors.grey.withValues(alpha: 0.3)),
                   ),
                 );
               }),
@@ -199,7 +199,7 @@ class _PinLockScreenState extends ConsumerState<PinLockScreen> {
         height: 72,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.grey.withOpacity(0.2)),
+          border: Border.all(color: Colors.grey.withValues(alpha: 0.2)),
         ),
         child: Center(
           child: Text(

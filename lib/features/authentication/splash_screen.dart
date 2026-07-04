@@ -74,9 +74,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
                 Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.15),
+                    color: Colors.white.withValues(alpha: 0.15),
                     shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white.withOpacity(0.2), width: 2),
+                    border: Border.all(color: Colors.white.withValues(alpha: 0.2), width: 2),
                   ),
                   child: const Icon(
                     Icons.account_balance_wallet_rounded,
@@ -98,7 +98,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
                 Text(
                   'Your AI-Powered Personal Finance Assistant',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                     fontSize: 14,
                   ),
                 ),
