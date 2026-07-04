@@ -160,12 +160,14 @@ class TransactionFilterState {
   }
 }
 
-final transactionFilterProvider = StateNotifierProvider<StateNotifier<TransactionFilterState>, TransactionFilterState>((ref) {
-  class FilterNotifier extends StateNotifier<TransactionFilterState> {
-    FilterNotifier() : super(TransactionFilterState());
-  }
+class FilterNotifier extends StateNotifier<TransactionFilterState> {
+  FilterNotifier() : super(TransactionFilterState());
+}
+
+final transactionFilterProvider = StateNotifierProvider<FilterNotifier, TransactionFilterState>((ref) {
   return FilterNotifier();
 });
+
 
 final transactionsListProvider = Provider<List<TransactionModel>>((ref) {
   final filters = ref.watch(transactionFilterProvider);

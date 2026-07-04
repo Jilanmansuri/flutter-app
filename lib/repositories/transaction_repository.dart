@@ -2,7 +2,6 @@ import '../core/services/hive_service.dart';
 import '../core/services/sms_service.dart';
 import '../core/services/sync_service.dart';
 import '../models/transaction_model.dart';
-import '../models/budget_model.dart';
 
 class TransactionRepository {
   final HiveService _hiveService = HiveService();

@@ -19,12 +19,12 @@ class AppTheme {
       error: dangerAccent,
       surface: const Color(0xFFF8FAFC), // Slate 50
     ),
-    cardTheme: CardTheme(
+    cardTheme: const CardThemeData(
       color: Colors.white,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24.0),
-        side: const BorderSide(color: Color(0xFFE2E8F0), width: 1),
+        borderRadius: BorderRadius.all(Radius.circular(24.0)),
+        side: BorderSide(color: Color(0xFFE2E8F0), width: 1),
       ),
     ),
     appBarTheme: const AppBarTheme(
@@ -59,12 +59,12 @@ class AppTheme {
       surface: const Color(0xFF0B0F19), // Deeper Slate
     ),
     scaffoldBackgroundColor: const Color(0xFF070A13),
-    cardTheme: CardTheme(
-      color: const Color(0xFF111827), // Gray 900
+    cardTheme: const CardThemeData(
+      color: Color(0xFF111827), // Gray 900
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24.0),
-        side: const BorderSide(color: Color(0xFF1F2937), width: 1),
+        borderRadius: BorderRadius.all(Radius.circular(24.0)),
+        side: BorderSide(color: Color(0xFF1F2937), width: 1),
       ),
     ),
     appBarTheme: const AppBarTheme(

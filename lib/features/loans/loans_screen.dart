@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../../core/services/providers.dart';
 import '../../models/loan_model.dart';
+import '../../models/transaction_model.dart';
 import '../../widgets/glass_card.dart';
 
 class LoansScreen extends ConsumerStatefulWidget {

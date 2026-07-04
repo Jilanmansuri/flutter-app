@@ -28,7 +28,7 @@ class ReportService {
             pw.Header(
               level: 0,
               child: pw.Row(
-                mainpw: pw.MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
                   pw.Text('Smart Finance Report', style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold)),
                   pw.Text(title, style: pw.TextStyle(fontSize: 14, color: PdfColors.grey700)),
@@ -39,7 +39,7 @@ class ReportService {
             
             // Financial Summary Block
             pw.Row(
-              mainpw: pw.MainAxisAlignment.spaceAround,
+              mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
               children: [
                 _buildPdfSummaryCard('Total Income', '$currency${income.toStringAsFixed(2)}', PdfColors.green700),
                 _buildPdfSummaryCard('Total Expense', '$currency${expense.toStringAsFixed(2)}', PdfColors.red700),
@@ -85,29 +85,29 @@ class ReportService {
 
     // Headers
     sheet.appendRow([
-      xl.CellValue.value('Transaction ID'),
-      xl.CellValue.value('Date'),
-      xl.CellValue.value('Time'),
-      xl.CellValue.value('Category'),
-      xl.CellValue.value('Payment Method'),
-      xl.CellValue.value('Type'),
-      xl.CellValue.value('Amount'),
-      xl.CellValue.value('Notes'),
-      xl.CellValue.value('Bank'),
+      xl.TextCellValue('Transaction ID'),
+      xl.TextCellValue('Date'),
+      xl.TextCellValue('Time'),
+      xl.TextCellValue('Category'),
+      xl.TextCellValue('Payment Method'),
+      xl.TextCellValue('Type'),
+      xl.TextCellValue('Amount'),
+      xl.TextCellValue('Notes'),
+      xl.TextCellValue('Bank'),
     ]);
 
     // Rows
     for (var tx in transactions) {
       sheet.appendRow([
-        xl.CellValue.value(tx.id),
-        xl.CellValue.value(tx.date.toIso8601String().split('T')[0]),
-        xl.CellValue.value(tx.time),
-        xl.CellValue.value(tx.category),
-        xl.CellValue.value(tx.paymentMethod),
-        xl.CellValue.value(tx.type),
-        xl.CellValue.value(tx.amount),
-        xl.CellValue.value(tx.notes ?? ''),
-        xl.CellValue.value(tx.bankName ?? ''),
+        xl.TextCellValue(tx.id),
+        xl.TextCellValue(tx.date.toIso8601String().split('T')[0]),
+        xl.TextCellValue(tx.time),
+        xl.TextCellValue(tx.category),
+        xl.TextCellValue(tx.paymentMethod),
+        xl.TextCellValue(tx.type),
+        xl.DoubleCellValue(tx.amount),
+        xl.TextCellValue(tx.notes ?? ''),
+        xl.TextCellValue(tx.bankName ?? ''),
       ]);
     }
 

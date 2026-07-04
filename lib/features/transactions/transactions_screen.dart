@@ -59,14 +59,16 @@ class _TransactionsScreenState extends ConsumerState<TransactionsScreen> {
         barrierDismissible: false,
         builder: (context) => const Center(
           child: Card(
-            padding: EdgeInsets.all(24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                CircularProgressIndicator(),
-                SizedBox(height: 16),
-                Text('Analyzing receipt OCR details...', style: TextStyle(fontWeight: FontWeight.bold)),
-              ],
+            child: Padding(
+              padding: EdgeInsets.all(24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 16),
+                  Text('Analyzing receipt OCR details...', style: TextStyle(fontWeight: FontWeight.bold)),
+                ],
+              ),
             ),
           ),
         ),

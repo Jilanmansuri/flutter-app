@@ -38,7 +38,7 @@ class AppConstants {
     
     CategoryInfo(name: 'Salary', icon: Icons.account_balance_wallet_rounded, color: Colors.green, isExpense: false),
     CategoryInfo(name: 'Freelance', icon: Icons.laptop_chromebook_rounded, color: Colors.cyan, isExpense: false),
-    CategoryInfo(name: 'Investment Return', icon: Icons.show_chart_rounded, color: Colors.emerald, isExpense: false),
+    CategoryInfo(name: 'Investment Return', icon: Icons.show_chart_rounded, color: const Color(0xFF0F9D58), isExpense: false),
     
     CategoryInfo(name: 'Others', icon: Icons.more_horiz_rounded, color: Colors.grey, isExpense: true),
   ];
