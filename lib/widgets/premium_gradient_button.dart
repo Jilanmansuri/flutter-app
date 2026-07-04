@@ -36,7 +36,7 @@ class PremiumGradientButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius),
         boxShadow: [
           BoxShadow(
-            color: themeColors.first.withOpacity(0.3),
+            color: themeColors.first.withValues(alpha: 0.3),
             blurRadius: 16,
             offset: const Offset(0, 8),
           ),
