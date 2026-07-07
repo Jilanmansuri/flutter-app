@@ -4,6 +4,7 @@ Smart Finance is a modern, production-quality personal finance management applic
 
 ---
 
+
 ## Technical Stack & Plugins
 
 - **State Management**: [Riverpod](https://pub.dev/packages/flutter_riverpod)
